@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+#
+# log-archive — Compress a log directory into a timestamped tar.gz archive.
+#
+# Usage:
+#   log-archive <log-directory>
+#
+# Example:
+#   log-archive /var/log
+#
+# Archives are stored in ./archives/ by default, with a timestamped filename.
+# Each run is recorded in archives/archive_log.txt
+
+set -euo pipefail
+
+# --- functions ---
+usage() {
+    echo "Usage: $0 <log-directory>" >&2
+    exit 1
+}
+
+err() {
+    echo "[$(date +'%F %T')] ERROR: $*" >&2
+    exit 1
+}
+
+log() {
+    echo "[$(date +'%F %T')] $*"
+}
+
+# --- main ---
+# Check args
+if [[ $# -ne 1 ]]; then
+    usage
+fi
+
+LOG_DIR=$1
+
+# Resolve path to absolute
+if [[ ! -d "$LOG_DIR" ]]; then
+    err "Directory not found: $LOG_DIR"
+fi
+
+LOG_DIR=$(realpath "$LOG_DIR")
+BASENAME=$(basename "$LOG_DIR")
+
+# Where to store archives
+ARCHIVE_DIR="./archives"
+mkdir -p "$ARCHIVE_DIR"
+
+# Timestamp
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+ARCHIVE_FILE="${ARCHIVE_DIR}/${BASENAME}_logs_${TIMESTAMP}.tar.gz"
+
+# Create archive
+log "Creating archive from $LOG_DIR -> $ARCHIVE_FILE"
+tar -czf "$ARCHIVE_FILE" -C "$LOG_DIR" . || err "Failed to create archive"
+
+# Record in log file
+echo "$(date +'%F %T') : Archived $LOG_DIR -> $ARCHIVE_FILE" >> "${ARCHIVE_DIR}/archive_log.txt"
+
+log "Archive complete: $ARCHIVE_FILE"
+
