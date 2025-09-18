@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# nginx-log-analy — quick & dirty nginx access log analyzer
+#
+# Expects "combined" log format:
+#   $remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent \
+#   "$http_referer" "$http_user_agent"
+#
+# Usage:
+#   ./nginx-log-analy /path/to/nginx-access.log
+#
+
+set -euo pipefail
+
+LOGFILE=${1:-nginx-access.log}
+
+[[ -f "$LOGFILE" ]] || {
+    echo "Error: logfile not found: $LOGFILE" >&2
+    exit 1
+}
+
+top_n=5
+
+report() {
+    echo
+    echo "== $1 =="
+    shift
+    "$@" | sort | uniq -c | sort -nr | head -n "$top_n" | awk '{print $2, "-", $1, "requests"}'
+}
+
+echo "Analyzing $LOGFILE ..."
+
+report "Top $top_n IP addresses" \
+    grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' "$LOGFILE"
+
+report "Top $top_n requested paths" \
+    awk '{print $7}' "$LOGFILE"
+
+report "Top $top_n response status codes" \
+    awk '{print $9}' "$LOGFILE"
+
