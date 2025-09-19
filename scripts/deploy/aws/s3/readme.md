@@ -10,17 +10,23 @@
     Static website hosting > Edit
 
     S3 static website hosting
-    > Enabled
+
+        > Enabled
+
     Hosting type
-    > Bucket hosting
+
+        >  Bucket hosting
+
     Bucket website endpoint
-    > `Web url here`
+
+        > `Web url here`
 
 2. Amazon S3 > Buckets > [bucket-name] > Permissions
 
     Block public access (bucket settings) > Edit
 
     Block all public access
-    > On
+
+        > On
 
     to allow to upload file via [upload.sh](./upload.sh)
