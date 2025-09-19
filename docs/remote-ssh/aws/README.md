@@ -2,7 +2,6 @@
 
 Follow these steps to connect to a newly created Amazon EC2 server using SSH.
 
----
 
 ## 1. Prerequisites
 
@@ -11,7 +10,6 @@ Follow these steps to connect to a newly created Amazon EC2 server using SSH.
 * Your EC2 instance’s **public IPv4 address** (visible in the AWS console).
 * `ssh` installed locally (macOS, Linux, WSL on Windows).
 
----
 
 ## 2. Set Permissions on Your Key File
 
@@ -21,7 +19,6 @@ AWS requires your private key file (`.pem`) to have restrictive permissions:
 chmod 400 my-key.pem
 ```
 
----
 
 ## 3. Connect to the Server
 
@@ -47,7 +44,6 @@ Example:
 ssh -i my-key.pem ubuntu@54.210.12.34
 ```
 
----
 
 ## 4. (Optional) Save to SSH Config
 
@@ -66,7 +62,6 @@ Now connect with:
 ssh my-ec2
 ```
 
----
 
 ## 5. Common Troubleshooting
 
