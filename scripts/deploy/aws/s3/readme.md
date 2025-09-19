@@ -1,4 +1,4 @@
-> [!IMPORTNANT]
+> [!IMPORTANT]
 > You must config `AWS S3` bucket policy first to use s3 as a web host
 
 
