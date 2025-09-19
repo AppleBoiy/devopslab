@@ -1,0 +1,1 @@
+config aws cli -> [here](https://docs.aws.amazon.com/ja_jp/cli/v1/userguide/cli-chap-configure.html)
