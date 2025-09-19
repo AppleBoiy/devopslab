@@ -1,0 +1,11 @@
+Requirements
+
+You are required to setup a remote linux server and configure it to allow SSH connections.
+
+Register and setup a remote linux server on any provider e.g. a simple droplet on DigitalOcean which gives you $200 in free credits with the link. Alternatively, use AWS or any other provider.
+Create two new SSH key pairs and add them to your server.
+You should be able to connect to your server using both SSH keys.
+You should be able to use the following command to connect to your server using both SSH keys.
+
+
+
