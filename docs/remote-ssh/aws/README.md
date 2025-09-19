@@ -1,5 +1,3 @@
-# SET-UP-SSH.md
-
 ## Connect to Your Fresh Amazon EC2 Instance
 
 Follow these steps to connect to a newly created Amazon EC2 server using SSH.
