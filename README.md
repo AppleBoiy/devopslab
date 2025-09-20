@@ -6,3 +6,4 @@
 - [ssh/remote-server](https://roadmap.sh/projects/ssh-remote-server-setup) -> [docs/remote-ssh](docs/remote-ssh)
 - [static-site-server](https://roadmap.sh/projects/static-site-server) -> [gh:AppleBoiy/static-site](https://github.com/AppleBoiy/static-site)
 - [basic-dns](https://roadmap.sh/projects/basic-dns) -> [docs/dns](docs/dns)
+- [simple-monitoring](https://roadmap.sh/projects/simple-monitoring-dashboard) -> [scripts/server-stat/netdata](scripts/server-stat/netdata)
