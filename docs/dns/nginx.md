@@ -1,18 +1,21 @@
-## Configure Nginx Server Block
+## Update Domain DNS Records
 
-On your server, create a directory for your domain:
+Log in to your domain registrar (e.g., Namecheap, GoDaddy, Google Domains, Route53).
+Create or update **DNS A Records**:
 
-```bash
-sudo mkdir -p /var/www/example.com/html
-sudo chown -R $USER:$USER /var/www/example.com/html
-sudo chmod -R 755 /var/www/example.com
-```
+| Type | Name / Host | Value (IPv4 Address) | TTL     |
+| ---- | ----------- | -------------------- | ------- |
+| A    | @           | 54.123.45.67         | Default |
+| A    | www         | 54.123.45.67         | Default |
 
-Create a test page:
+* `@` → root domain (example.com)
+* `www` → subdomain ([www.example.com](http://www.example.com))
+* Value → your server’s **public IP**
 
-```bash
-echo "<h1>Hello from example.com</h1>" | sudo tee /var/www/example.com/html/index.html
-```
+Wait **5–30 minutes** (sometimes up to 24h) for DNS propagation.
+
+---
+
 
 Create Nginx config:
 
@@ -26,13 +29,6 @@ Paste:
 server {
     listen 80;
     server_name example.com www.example.com;
-
-    root /var/www/example.com/html;
-    index index.html;
-
-    location / {
-        try_files $uri $uri/ =404;
-    }
 }
 ```
 
