@@ -7,3 +7,4 @@
 - [static-site-server](https://roadmap.sh/projects/static-site-server) -> [gh:AppleBoiy/static-site](https://github.com/AppleBoiy/static-site)
 - [basic-dns](https://roadmap.sh/projects/basic-dns) -> [docs/dns](docs/dns)
 - [simple-monitoring](https://roadmap.sh/projects/simple-monitoring-dashboard) -> [scripts/server-stat/netdata](scripts/server-stat/netdata)
+- [dummy-systemd-service](https://roadmap.sh/projects/dummy-systemd-service) -> [scripts/systemd/dummy](scripts/systemd/dummy)
