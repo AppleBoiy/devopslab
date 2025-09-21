@@ -1,15 +1,26 @@
-#!/bin/bash
-# Remove Netdata and cleanup files
+#!/usr/bin/env bash
+#
+# netdata-cleanup — remove Netdata and test artifacts
+#
+# Usage:
+#   ./netdata-cleanup
+#
 
-set -e
+set -euo pipefail
 
-echo "[INFO] Stopping Netdata..."
-sudo systemctl stop netdata
+echo "stopping netdata..."
+sudo systemctl stop netdata || true
 
-echo "[INFO] Removing Netdata..."
-sudo apt-get remove --purge -y netdata
+echo "removing netdata..."
+if command -v apt-get >/dev/null; then
+    sudo apt-get remove --purge -y netdata
+elif command -v yum >/dev/null; then
+    sudo yum remove -y netdata
+else
+    echo "no supported package manager found" >&2
+fi
 
-echo "[INFO] Cleaning test files..."
+echo "cleaning test files..."
 rm -f /tmp/netdata_test
 
-echo "[INFO] Cleanup complete."
+echo "cleanup complete."

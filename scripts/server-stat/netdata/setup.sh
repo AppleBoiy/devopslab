@@ -1,9 +1,16 @@
-#!/bin/bash
-# Install Netdata and start service
+#!/usr/bin/env bash
+#
+# netdata-setup — install Netdata and start service
+#
+# Usage:
+#   ./netdata-setup
+#
 
-set -e
+set -euo pipefail
 
-echo "[INFO] Installing Netdata..."
-curl https://get.netdata.cloud/kickstart.sh > /tmp/netdata-kickstart.sh && sh /tmp/netdata-kickstart.sh
+echo "installing netdata..."
+curl -fsSL https://get.netdata.cloud/kickstart.sh -o /tmp/netdata-kickstart.sh
+sh /tmp/netdata-kickstart.sh
 
-echo "[INFO] Netdata installed. Access at http://$(curl -s ifconfig.me):19999"
+echo "netdata installed"
+echo "dashboard: http://$(curl -s ifconfig.me):19999"

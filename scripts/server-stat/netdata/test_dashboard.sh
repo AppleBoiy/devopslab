@@ -1,10 +1,17 @@
-#!/bin/bash
-# Generate system load to test dashboard
+#!/usr/bin/env bash
+#
+# netdata-test — generate system load for dashboard testing
+#
+# Usage:
+#   ./netdata-test
+#
 
-echo "[INFO] Generating CPU load for 60 seconds..."
+set -euo pipefail
+
+echo "generating cpu load (60s)..."
 timeout 60s bash -c "while :; do :; done" &
 
-echo "[INFO] Generating disk load..."
-dd if=/dev/zero of=/tmp/netdata_test bs=1M count=500 oflag=direct 2>/dev/null
+echo "generating disk load..."
+dd if=/dev/zero of=/tmp/netdata_test bs=1M count=500 oflag=direct status=none
 
-echo "[INFO] Test complete. Visit dashboard to check charts and alerts."
+echo "test complete — check the netdata dashboard"
