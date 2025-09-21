@@ -1,18 +1,38 @@
-Requirements
+# Requirements
 
-In this project, you will set up a basic monitoring dashboard using Netdata. Netdata is a powerful, real-time performance and health monitoring tool for systems and applications.
+This project involves setting up a basic monitoring dashboard using **Netdata**, a powerful, real-time performance and health monitoring tool for systems and applications.
 
-Install Netdata on a Linux system.
-Configure Netdata to monitor basic system metrics such as CPU, memory usage, and disk I/O.
-Access the Netdata dashboard through a web browser.
-Customize at least one aspect of the dashboard (e.g., add a new chart or modify an existing one).
-Set up an alert for a specific metric (e.g., CPU usage above 80%).
-You can learn more about installing and configuring Netdata here.
+## Objectives
+1. **Install Netdata** on a Linux system.
+2. **Configure Netdata** to monitor basic system metrics:
+   - CPU usage
+   - Memory usage
+   - Disk I/O
+3. **Access the Netdata dashboard** through a web browser.
+4. **Customize the dashboard**:
+   - Add a new chart or modify an existing one.
+5. **Set up an alert** for a specific metric:
+   - Example: CPU usage above 80%.
 
-You can follow the above steps manually to get the understanding of the project. Once you have a working setup, create a few shell scripts to automate the setup and test the monitoring dashboard.
+For more information on installing and configuring Netdata, refer to the official documentation.
 
-setup.sh: A shell script to install Netdata on a new system.
-test_dashboard.sh: Script to put some load on the system and test the monitoring dashboard.
-cleanup.sh: Script to clean up the system and remove the Netdata agent.
-The goal with this automation is to slowly get accustomed to DevOps practices and CI/CD pipelines.
+---
 
+## Automation Scripts
+
+To automate the setup and testing process, create the following shell scripts:
+
+1. **`setup.sh`**
+   A script to install Netdata on a new system.
+
+2. **`test_dashboard.sh`**
+   A script to simulate system load and test the monitoring dashboard.
+
+3. **`cleanup.sh`**
+   A script to clean up the system and remove the Netdata agent.
+
+---
+
+## Goal
+
+The goal of this project is to gain familiarity with DevOps practices and CI/CD pipelines by automating the setup and testing of a monitoring dashboard.

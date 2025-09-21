@@ -1,18 +1,36 @@
-The goal of this project is to help you understand the basics of setting up a web server using a basic static site served using Nginx. You will also learn how to use rsync to deploy your changes to the server.
+# Requirements
 
-Requirements
----
-
-Here are the requirements for this project:
-
-Register and setup a remote linux server on any provider e.g. a simple droplet on DigitalOcean which gives you $200 in free credits with the link. Alternatively, use AWS or any other provider.
-Make sure that you can connect to your server using SSH.
-Install and configure nginx to serve a static site.
-Create a simple webpage with basic HTML, CSS and image files.
-Use rsync to update a remote server with a local static site.
-If you have a domain name, point it to your server and serve your static site from there. Alternatively, set up your nginx server to serve the static site from the server's IP address.
-You can write a script deploy.sh which when you run will use rsync to sync your static site to the server.
+This project aims to help you understand the basics of setting up a web server to serve a basic static site using Nginx. Additionally, you will learn how to use `rsync` to deploy changes to the server.
 
 ---
 
-Once you have completed the project, you should have a basic understanding of how to setup a web server using a basic static site served using Nginx. You should also have a basic understanding of how to use rsync to deploy your changes to the server.
+## Steps
+
+1. **Set Up a Remote Server**
+   - Register and set up a remote Linux server on any provider (e.g., DigitalOcean, AWS, etc.).
+   - Ensure you can connect to the server using SSH.
+
+2. **Install and Configure Nginx**
+   - Install Nginx on the server.
+   - Configure Nginx to serve a static site.
+
+3. **Create a Static Website**
+   - Develop a simple webpage with basic HTML, CSS, and image files.
+
+4. **Deploy Using `rsync`**
+   - Use `rsync` to update the remote server with the local static site.
+
+5. **Domain Configuration (Optional)**
+   - If you have a domain name, point it to your server to serve the static site.
+   - Alternatively, serve the static site from the server's IP address.
+
+6. **Automation Script**
+   - Write a `deploy.sh` script to automate the deployment process using `rsync`.
+
+---
+
+## Goal
+
+By completing this project, you will:
+- Gain a basic understanding of setting up a web server with Nginx.
+- Learn how to use `rsync` for deploying changes to a server.
