@@ -9,3 +9,4 @@
 - [simple-monitoring](https://roadmap.sh/projects/simple-monitoring-dashboard) -> [scripts/server-stat/netdata](scripts/server-stat/netdata)
 - [dummy-systemd-service](https://roadmap.sh/projects/dummy-systemd-service) -> [scripts/systemd/dummy](scripts/systemd/dummy)
 - [basic-docker-file](https://roadmap.sh/projects/basic-dockerfile) -> [scripts/docker/hello](scripts/docker/hello)
+- [ec2-instance](https://roadmap.sh/projects/ec2-instance) -> [docs/remote-ssh/aws](docs/remote-ssh/aws)
